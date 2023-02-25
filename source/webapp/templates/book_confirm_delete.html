@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container" style="margin-top: 100px">
+        <h1>Вы точно хотите удалить?</h1>
+        <p>Автор: {{ book.author }}</p>
+        <p>Текст: {{ book.text }}</p>
+        <form action="{% url 'confirm_delete' book.pk %}" method="post">
+            {% csrf_token %}
+            <div class="but" style="display: flex">
+                <p><input type="submit" value="Удалить"></p>
+                <a href="{% url 'index' %}"><p><input type="button" value="Отмена" style="margin-left: 10px"></p></a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
