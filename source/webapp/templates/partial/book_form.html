@@ -1,0 +1,22 @@
+{% csrf_token %}
+<div class="container">
+    <div class="form-floating mb-3" style="margin: 30px">
+        <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com"
+               value="{{ book.email }}">
+        <label for="floatingInput">Адрес электронной почты</label>
+    </div>
+    <div class="form-floating mb-3" style="margin: 30px">
+        <input type="text" name="author" class="form-control" id="author" placeholder="author"
+               value="{{ book.author }}">
+        <label for="name">Автор</label>
+    </div>
+    <div class="form-floating">
+            <textarea class="form-control" name="text" placeholder="Leave a text here" id="floatingTextarea2"
+                      style="height: 100px; width: 1240px; margin-left: 30px">{{ book.text }}</textarea>
+        <label for="floatingTextarea2" style="margin-left: 30px">Текст</label>
+    </div>
+    <button type="submit" class="btn btn-light" style="width: 200px; margin: 30px">{{ button_text }}</button>
+    <a href="{% url 'index' %}">
+        <button type="button" class="btn btn-light" style="width: 200px; margin: 30px">Вернуться</button>
+    </a>
+</div>
